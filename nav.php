@@ -40,6 +40,10 @@
         } elseif (isset($_SESSION['reslogin'])) { ?>
 
           <li class="nav-item">
+            <a class="nav-link" href="resdashboard.php">Dashboard</a>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link" href="addmenu.php">Add Menu</a>
           </li>
           <li class="nav-item">
@@ -50,11 +54,15 @@
               <?php echo $_SESSION['name']
               ?>
             </a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="logout.php">logout</a>
+          
+            
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="logout.php">logout</a>
 
 
-            </div>
+              </div>
+          
+         
           </li>
 
         <?php

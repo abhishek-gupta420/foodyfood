@@ -3,8 +3,9 @@ session_start();
 $emailErr = $passwordErr = "";
 $email = $password = "";
 
-if (isset($_SESSION['reslogin'])) {
-    header('location:resdashboard.php');
+if (isset($_SESSION['loggedin'])) {
+    $_SESSION['msg']="You are Already Logged IN";
+    header('location:index.php');
 }
 
 

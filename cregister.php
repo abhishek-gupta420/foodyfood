@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (isset($_SESSION['loggedin'])) {
+    $_SESSION['msg']="You are Already Logged IN";
+    header('location:index.php');
+}
 $nameErr = $emailErr = $passwordErr = $cpasswordErr = $mobileErr = $addressErr = $pErr = "";
 $name = $email = $password = $cpassword = $preference = $address = $mobile = "";
 

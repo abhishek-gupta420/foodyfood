@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (isset($_SESSION['loggedin'])) {
+    $_SESSION['msg']="You are Already Logged IN";
+    header('location:resdashboard.php');
+}
+
 $nameErr = $emailErr = $passwordErr = $cpasswordErr ="";
 $name = $email = $password = $cpassword = "";
 

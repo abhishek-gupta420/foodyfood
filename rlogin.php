@@ -3,7 +3,8 @@ session_start();
 $emailErr = $passwordErr = "";
 $email = $password = "";
 
-if (isset($_SESSION['reslogin'])) {
+if (isset($_SESSION['loggedin'])) {
+    $_SESSION['msg']="You are Already Logged IN";
     header('location:resdashboard.php');
 }
 
@@ -51,8 +52,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $_SESSION['loggedin'] = true;
                     $_SESSION['email'] = $email;
                     $_SESSION['name'] = $row['name'];
-                    $_SESSION['id'] = $row['id'];
+                    $_SESSION['res_id'] = $row['id'];
                     $_SESSION['reslogin'] = true;
+                    $_SESSION['msg']="Welcome ".$_SESSION['name'];
 
                     header("location:resdashboard.php");
                 }else{
