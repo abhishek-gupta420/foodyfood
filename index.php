@@ -1,8 +1,19 @@
 <?php
 session_start();
-
+$sql = "";
+$pre ="";
 include 'dbcon.php';
-$sql = "SELECT * FROM menu ";
+/**
+ * 
+ * making query to show only the user choice food i.e veg/non veg
+ */
+if(isset($_SESSION['clogin'])==true){
+    $pre= $_SESSION['pre'];
+    $sql = "SELECT * FROM menu WHERE category = '$pre'";
+
+}else{
+    $sql = "SELECT * FROM menu ";
+}
 
 ?>
 <!DOCTYPE html>
@@ -10,22 +21,11 @@ $sql = "SELECT * FROM menu ";
 <?php include 'head.php'; ?>
 
 <body>
-    <div>
+   
         <?php include 'nav.php';
-        if (isset($_SESSION['msg'])) { ?>
-
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <strong> <?php echo $_SESSION['msg'] ?></strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-
-            </div>
-        <?php
-            unset($_SESSION['msg']);
-        }
+        include 'msg.php';
         ?>
-    </div>
+  
     
         <div class="container-fluid">
             <div class="container" style="align-items: center; text-align: center;margin-bottom: 50px;margin-top: 20px;">
@@ -51,7 +51,7 @@ $sql = "SELECT * FROM menu ";
                                 <p class="card-text">
                                 <h4>Only @ <?php echo $row['price'] ?> </h4>
                                 </p>
-                                <a href="#" class="btn btn-primary">Order Now</a>
+                                <a href="order.php?id=<?php echo $row['id'] ?>" class="btn btn-primary">Order Now</a>
                             </div>
                         </div>
                     </div>

@@ -47,6 +47,7 @@ if (isset($_POST['submit'])) {
     $filename = pathinfo($filename, PATHINFO_FILENAME);
 
     
+   
     if ($_FILES["image"]["size"] > 5000000) {
         $imageErr = "Image should not be greater than 4.5 mb";
     }

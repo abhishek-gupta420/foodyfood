@@ -52,8 +52,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $_SESSION['loggedin'] = true;
                     $_SESSION['email'] = $email;
                     $_SESSION['name'] = $row['name'];
-                    $_SESSION['id'] = $row['id'];
+                    $_SESSION['c_id'] = $row['id'];
+                    $_SESSION['address'] = $row['address'];
+                    $_SESSION['mobile'] = $row['mobile'];
                     $_SESSION['clogin'] = true;
+                    $_SESSION['pre'] = $row['preference'];
+                    $_SESSION['msg']= "You are Logged IN Now You can place your orders";
 
                     header("location:index.php");
                 }else{
@@ -82,33 +86,19 @@ function validate_data($data)
 <body>
     <?php include 'nav.php' ?>
     <?php
-
-    if (isset($login)) {
-        echo '
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Your Account is created </strong> Now You can login to your account
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-    </div>';
+    include 'msg.php';
+    if (isset($loggedin)==true) {
+        
+        $_SESSION['msg']="you are already logged in";
+        header("location: index.php");
     }
-    if (isset($showError)) {
-        echo '
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>You are not valid user</strong>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-            </div>';
-    }
-
     ?>
     <div class="container">
 
         <div class="container-card">
 
             <div class="card" style="width: 50%;margin-top: 100px;">
-                <h5 class="card-header">Restaurant's Login</h5>
+                <h5 class="card-header">Customer's Login</h5>
                 <div class="card-body">
                     <h5 class="card-title"></h5>
                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">

@@ -67,6 +67,9 @@
 
         <?php
         } elseif (isset($_SESSION['clogin'])) { ?>
+        <li class="nav-item">
+          <a href="yourorders.php" class="nav-link">Your orders</a>
+        </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
               <?php echo $_SESSION['name']

@@ -54,6 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $_SESSION['name'] = $row['name'];
                     $_SESSION['res_id'] = $row['id'];
                     $_SESSION['reslogin'] = true;
+                    
                     $_SESSION['msg']="Welcome ".$_SESSION['name'];
 
                     header("location:resdashboard.php");
