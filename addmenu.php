@@ -100,7 +100,7 @@ if (isset($_POST['submit'])) {
             $res_id = "";
             $filename_to_store = "";
 
-            header("location: addmenu.php");
+            //header("location: addmenu.php");
 
         } else {
             die(mysqli_error($con));
@@ -125,19 +125,10 @@ function validate_data($data)
 <body>
   
     <?php include 'nav.php'; 
-        if(isset($_SESSION['msg'])){?>
+       include 'msg.php';
+       ?>
            
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong> <?php echo $_SESSION['msg']?></strong> 
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    
-            </div>
-            <?php
-            unset($_SESSION['msg']);
-        }
-        ?>
+            
     <div class="container">
 
         <div class="container-card">

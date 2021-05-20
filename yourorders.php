@@ -2,8 +2,8 @@
     session_start();
     include 'dbcon.php';
     $c_id = $_SESSION['c_id'];
-    $restaurant = "";
-    $sql = "SELECT * FROM orders where c_id = $c_id";
+   
+    $sql = "SELECT * FROM orders where c_id = $c_id ORDER BY date DESC";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +30,7 @@
                                 <th scope="col">Order ID</th>
                                 <th scope="col">Item Name</th>
                                 <th scope="col">Price</th>
-                                <th scope="col">Restaurant Name</th>
+                                
                                 <th scope="col">Date</th>
                                 <th scope="col">Time</th>
                              
@@ -44,7 +44,7 @@
                                         <th scope="row"><?php echo $row['order_id']?></th>
                                         <td><?php echo $row['item']?></td>
                                         <td><?php echo $row['price']?></td>
-                                        <td><?php echo $restaurant?></td>
+                                     
                                         <td><?php echo date("d-M-Y",strtotime($row['date']))?></td>
                                         <td><?php echo date("h : i A",strtotime($row['date']))?></td>
                                         
@@ -52,7 +52,9 @@
                             <?php }?>
                         </tbody>
                     </table>
-                    <?php }
+                    <?php }else{
+                        $_SESSION['msg']="Currently You do not have any orders. Place your order with foodyfood";
+                    }
                 ?>
 
             

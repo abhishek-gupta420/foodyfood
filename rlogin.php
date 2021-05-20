@@ -129,6 +129,7 @@ function validate_data($data)
 
 
                         <button type="submit" class="btn btn-primary">Login</button>
+                        Do not have account ? - <a href="resreg.php">Register</a>
                     </form>
 
                 </div>
