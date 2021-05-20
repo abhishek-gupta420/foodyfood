@@ -81,14 +81,15 @@ if (isset($_POST['submit'])) {
     /**
      * checking if there are no errors 
      */
+    $res_name= $_SESSION['name'];
 
     if ($nameErr == "" && $cErr == "" && $priceErr == "" && $imageErr == "") {
 
 
         $filename_to_store = $filename.'_'.date('mjYHis').'.'.$imgtype;
 
-        $sql = "INSERT INTO menu (name, category, price, image, res_id, created_at) VALUES ('$name', '$category', '$price', '$filename_to_store','$res_id', current_timestamp())";
-
+      echo  $sql = "INSERT INTO menu (name, category, price, image, res_id, res_name, created_at) VALUES ('$name', '$category', '$price', '$filename_to_store','$res_id','$res_name', current_timestamp())";
+  
         $result = mysqli_query($con, $sql);
         if ($result) {
             move_uploaded_file($tempname,"images/".$filename_to_store);

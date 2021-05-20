@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md bg-light navbar-light">
   <div class="container">
-    <a class="navbar-brand" href="index.php">FoodyFood</a>
+    <a class="navbar-brand" href="index.php">FoodyShala</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>

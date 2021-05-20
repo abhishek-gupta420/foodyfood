@@ -30,7 +30,7 @@
                                 <th scope="col">Order ID</th>
                                 <th scope="col">Item Name</th>
                                 <th scope="col">Price</th>
-                                
+                                <th scope="col">Reatauran Name</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">Time</th>
                              
@@ -44,7 +44,7 @@
                                         <th scope="row"><?php echo $row['order_id']?></th>
                                         <td><?php echo $row['item']?></td>
                                         <td><?php echo $row['price']?></td>
-                                     
+                                        <td><?php echo $row['res_name']?></td>
                                         <td><?php echo date("d-M-Y",strtotime($row['date']))?></td>
                                         <td><?php echo date("h : i A",strtotime($row['date']))?></td>
                                         

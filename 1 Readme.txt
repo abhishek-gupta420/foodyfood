@@ -4,8 +4,8 @@ This project only fulfill the requirements specified by the Assignment.
 
 Key points to Remember while opening this project in local environment.
 
--> Project name = Foodyfood
--> database name = foodyfood
+-> Project name = FoodShala
+-> database name = foodyshala
 -> database username = "root"
 -> database password= ""
 -> Server = localhost

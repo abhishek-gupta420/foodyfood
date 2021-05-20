@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2021 at 09:30 AM
+-- Generation Time: May 20, 2021 at 10:36 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `foodyfood`
+-- Database: `foodshala`
 --
 
 -- --------------------------------------------------------
@@ -62,6 +62,7 @@ CREATE TABLE `menu` (
   `price` int(10) NOT NULL,
   `image` varchar(255) NOT NULL,
   `res_id` int(10) NOT NULL,
+  `res_name` varchar(30) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -69,17 +70,18 @@ CREATE TABLE `menu` (
 -- Dumping data for table `menu`
 --
 
-INSERT INTO `menu` (`id`, `name`, `category`, `price`, `image`, `res_id`, `created_at`) VALUES
-(1, 'Paneer', 'veg', 99, 'chilli-paneer-dry_05192021110837.jpg', 1, '2021-05-18 15:13:54'),
-(2, 'Paneer', 'veg', 399, 'Chilli-Paneer-Restaurant-Style_05192021110856.jpg', 1, '2021-05-18 15:14:51'),
-(3, 'Tandoori Chicken', 'nonveg', 499, 'tcki_05192021111859.jpg', 1, '2021-05-18 15:16:15'),
-(4, 'All In One', 'nonveg', 200, 'download_05192021111952.jpg', 1, '2021-05-18 15:20:03'),
-(5, 'Matter Paneer', 'veg', 199, 'Matar-Paneer-2-500x500_05192021115928.jpg', 2, '2021-05-18 15:36:10'),
-(6, 'Chilli Paneer Dry', 'veg', 399, 'chilli-paneer-dry_05192021054652.jpg', 2, '2021-05-19 09:16:52'),
-(8, 'Dhosa', 'veg', 99, 'dosa_05202021082841.jpg', 2, '2021-05-20 11:58:41'),
-(9, 'Cone Dosa', 'veg', 199, 'coneDosa_05202021083033.jpg', 2, '2021-05-20 12:00:33'),
-(10, 'Matter Paneer Specia', 'veg', 199, 'mpaneer_05202021083638.jpg', 2, '2021-05-20 12:06:38'),
-(12, 'dum aalloo', 'veg', 99, 'dum-Aloo_05202021083940.jpg', 3, '2021-05-20 12:09:40');
+INSERT INTO `menu` (`id`, `name`, `category`, `price`, `image`, `res_id`, `res_name`, `created_at`) VALUES
+(1, 'Paneer', 'veg', 99, 'chilli-paneer-dry_05192021110837.jpg', 1, 'Abhi Ka Dhaba', '2021-05-18 15:13:54'),
+(2, 'Paneer', 'veg', 399, 'Chilli-Paneer-Restaurant-Style_05192021110856.jpg', 1, 'Abhi Ka Dhaba', '2021-05-18 15:14:51'),
+(3, 'Tandoori Chicken', 'nonveg', 499, 'tcki_05192021111859.jpg', 1, 'Abhi Ka Dhaba', '2021-05-18 15:16:15'),
+(4, 'All In One', 'nonveg', 200, 'download_05192021111952.jpg', 1, 'Abhi Ka Dhaba', '2021-05-18 15:20:03'),
+(5, 'Matter Paneer', 'veg', 199, 'Matar-Paneer-2-500x500_05192021115928.jpg', 2, 'Mummy ka Dhaba', '2021-05-18 15:36:10'),
+(6, 'Chilli Paneer Dry', 'veg', 399, 'chilli-paneer-dry_05192021054652.jpg', 2, 'Mummy ka Dhaba', '2021-05-19 09:16:52'),
+(8, 'Dhosa', 'veg', 99, 'dosa_05202021082841.jpg', 2, 'Mummy ka Dhaba', '2021-05-20 11:58:41'),
+(9, 'Cone Dosa', 'veg', 199, 'coneDosa_05202021083033.jpg', 2, 'Mummy ka Dhaba', '2021-05-20 12:00:33'),
+(10, 'Matter Paneer Specia', 'veg', 199, 'mpaneer_05202021083638.jpg', 2, 'Mummy ka Dhaba', '2021-05-20 12:06:38'),
+(12, 'dum aalloo', 'veg', 99, 'dum-Aloo_05202021083940.jpg', 3, 'Apna Dhaba', '2021-05-20 12:09:40'),
+(13, 'Chole Bature', 'veg', 49, 'chole-bhature-recipe_05202021101611.jpg', 3, 'Apna Dhaba', '2021-05-20 13:46:11');
 
 -- --------------------------------------------------------
 
@@ -96,6 +98,7 @@ CREATE TABLE `orders` (
   `c_mobile` int(10) NOT NULL,
   `c_id` int(10) NOT NULL,
   `res_id` int(10) NOT NULL,
+  `res_name` varchar(30) NOT NULL,
   `date` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -103,25 +106,26 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `item`, `c_name`, `price`, `c_address`, `c_mobile`, `c_id`, `res_id`, `date`) VALUES
-(1, 'Paneer', 'Abhishek Gupta', 99, 'VILL. PANJRAT, TEH. KARSOG.', 2147483647, 1, 1, '2021-05-20 00:21:37'),
-(2, 'Paneer', 'Abhishek Gupta', 99, 'VILL. PANJRAT, TEH. KARSOG.', 2147483647, 1, 1, '2021-05-20 00:34:15'),
-(3, 'Matter Paneer', 'Abhishek Gupta', 199, 'VILL. PANJRAT, TEH. KARSOG.', 2147483647, 1, 2, '2021-05-20 00:36:45'),
-(4, 'Chilli Paneer Dry', 'Abhishek Gupta', 399, 'VILL. PANJRAT, TEH. KARSOG.', 2147483647, 1, 2, '2021-05-20 00:37:03'),
-(5, 'Paneer', 'Abhishek Gupta', 399, 'VILL. PANJRAT, TEH. KARSOG.', 2147483647, 1, 1, '2021-05-20 00:40:46'),
-(9, 'Tandoori Chicken', 'Ghost', 499, 'shimla distt. shimla himachal pradesh', 2147483647, 5, 1, '2021-05-20 10:24:29'),
-(16, 'Paneer', 'Abhishek Gupta', 399, 'VILL. PANJRAT, TEH. KARSOG.', 2147483647, 1, 1, '2021-05-20 10:26:22'),
-(17, 'Matter Paneer', 'Abhishek Gupta', 199, 'VILL. PANJRAT, TEH. KARSOG.', 2147483647, 1, 2, '2021-05-20 10:33:23'),
-(18, 'Tandoori Chicken', 'Ghost', 499, 'shimla distt. shimla himachal pradesh', 2147483647, 5, 1, '2021-05-20 10:52:28'),
-(19, 'dum aalloo', 'Abhishek Gupta', 99, 'VILL. PANJRAT, TEH. KARSOG.', 2147483647, 1, 3, '2021-05-20 12:10:23'),
-(20, 'Tandoori Chicken', 'Abhinav Kumar', 499, 'Shimla', 2147483647, 6, 1, '2021-05-20 12:19:19'),
-(21, 'Tandoori Chicken', 'Abhinav Kumar', 499, 'Shimla', 2147483647, 6, 1, '2021-05-20 12:27:27'),
-(22, 'All In One', 'Abhinav Kumar', 200, 'Shimla', 2147483647, 6, 1, '2021-05-20 12:27:30'),
-(23, 'dum aalloo', 'Abhishek Gupta', 99, 'VILL. PANJRAT, TEH. KARSOG.', 2147483647, 1, 3, '2021-05-20 12:28:17'),
-(24, 'Chilli Paneer Dry', 'Abhishek Gupta', 399, 'VILL. PANJRAT, TEH. KARSOG.', 2147483647, 1, 2, '2021-05-20 12:29:47'),
-(25, 'Dhosa', 'Abhishek Gupta', 99, 'VILL. PANJRAT, TEH. KARSOG.', 2147483647, 1, 2, '2021-05-20 12:30:29'),
-(26, 'Cone Dosa', 'Abhishek Gupta', 199, 'VILL. PANJRAT, TEH. KARSOG.', 2147483647, 1, 2, '2021-05-20 12:31:16'),
-(27, 'Dhosa', 'Abhishek Gupta', 99, 'VILL. PANJRAT, TEH. KARSOG.', 2147483647, 1, 2, '2021-05-20 12:32:21');
+INSERT INTO `orders` (`order_id`, `item`, `c_name`, `price`, `c_address`, `c_mobile`, `c_id`, `res_id`, `res_name`, `date`) VALUES
+(1, 'Paneer', 'Abhishek Gupta', 99, 'VILL. PANJRAT, TEH. KARSOG.', 2147483647, 1, 1, 'Abhi ka Dhaba', '2021-05-20 00:21:37'),
+(2, 'Paneer', 'Abhishek Gupta', 99, 'VILL. PANJRAT, TEH. KARSOG.', 2147483647, 1, 1, 'Abhi ka Dhaba', '2021-05-20 00:34:15'),
+(3, 'Matter Paneer', 'Abhishek Gupta', 199, 'VILL. PANJRAT, TEH. KARSOG.', 2147483647, 1, 2, 'Mummy ka Dhaba', '2021-05-20 00:36:45'),
+(4, 'Chilli Paneer Dry', 'Abhishek Gupta', 399, 'VILL. PANJRAT, TEH. KARSOG.', 2147483647, 1, 2, 'Mummy ka Dhaba', '2021-05-20 00:37:03'),
+(5, 'Paneer', 'Abhishek Gupta', 399, 'VILL. PANJRAT, TEH. KARSOG.', 2147483647, 1, 1, 'Abhi ka Dhaba', '2021-05-20 00:40:46'),
+(9, 'Tandoori Chicken', 'Ghost', 499, 'shimla distt. shimla himachal pradesh', 2147483647, 5, 1, 'Abhi ka Dhaba', '2021-05-20 10:24:29'),
+(16, 'Paneer', 'Abhishek Gupta', 399, 'VILL. PANJRAT, TEH. KARSOG.', 2147483647, 1, 1, 'Abhi ka Dhaba', '2021-05-20 10:26:22'),
+(17, 'Matter Paneer', 'Abhishek Gupta', 199, 'VILL. PANJRAT, TEH. KARSOG.', 2147483647, 1, 2, 'Mummy ka Dhaba', '2021-05-20 10:33:23'),
+(18, 'Tandoori Chicken', 'Ghost', 499, 'shimla distt. shimla himachal pradesh', 2147483647, 5, 1, 'Abhi ka Dhaba', '2021-05-20 10:52:28'),
+(19, 'dum aalloo', 'Abhishek Gupta', 99, 'VILL. PANJRAT, TEH. KARSOG.', 2147483647, 1, 3, 'Apna Dhaba', '2021-05-20 12:10:23'),
+(20, 'Tandoori Chicken', 'Abhinav Kumar', 499, 'Shimla', 2147483647, 6, 1, 'Abhi ka Dhaba', '2021-05-20 12:19:19'),
+(21, 'Tandoori Chicken', 'Abhinav Kumar', 499, 'Shimla', 2147483647, 6, 1, 'Abhi ka Dhaba', '2021-05-20 12:27:27'),
+(22, 'All In One', 'Abhinav Kumar', 200, 'Shimla', 2147483647, 6, 1, 'Abhi ka Dhaba', '2021-05-20 12:27:30'),
+(23, 'dum aalloo', 'Abhishek Gupta', 99, 'VILL. PANJRAT, TEH. KARSOG.', 2147483647, 1, 3, 'Apna Dhaba', '2021-05-20 12:28:17'),
+(24, 'Chilli Paneer Dry', 'Abhishek Gupta', 399, 'VILL. PANJRAT, TEH. KARSOG.', 2147483647, 1, 2, 'Mummy ka Dhaba', '2021-05-20 12:29:47'),
+(25, 'Dhosa', 'Abhishek Gupta', 99, 'VILL. PANJRAT, TEH. KARSOG.', 2147483647, 1, 2, 'Mummy ka Dhaba', '2021-05-20 12:30:29'),
+(26, 'Cone Dosa', 'Abhishek Gupta', 199, 'VILL. PANJRAT, TEH. KARSOG.', 2147483647, 1, 2, 'Mummy ka Dhaba', '2021-05-20 12:31:16'),
+(27, 'Dhosa', 'Abhishek Gupta', 99, 'VILL. PANJRAT, TEH. KARSOG.', 2147483647, 1, 2, 'Mummy ka Dhaba', '2021-05-20 12:32:21'),
+(28, 'Chole Bature', 'Abhishek Gupta', 49, 'VILL. PANJRAT, TEH. KARSOG.', 2147483647, 1, 3, 'Apna Dhaba', '2021-05-20 13:59:14');
 
 -- --------------------------------------------------------
 
@@ -193,13 +197,13 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `restaurants`

@@ -27,8 +27,10 @@ session_start();
 
             $c_name = $_SESSION['name'];
 
-            $makeorder = "INSERT INTO ORDERS (item, c_name, price, c_address, c_mobile, c_id, res_id, date) 
-            VALUES ('$item', '$c_name', '$price', '$c_address', '$c_mobile', '$c_id', '$res_id', current_timestamp())";
+            $res_name = $row['res_name'];
+
+            $makeorder = "INSERT INTO ORDERS (item, c_name, price, c_address, c_mobile, c_id, res_id, res_name, date) 
+            VALUES ('$item', '$c_name', '$price', '$c_address', '$c_mobile', '$c_id', '$res_id','$res_name', current_timestamp())";
 
             if(mysqli_query($con,$makeorder)){
                 $_SESSION['msg']="your order is placed Successfully and will be delivered to you with in an hour";

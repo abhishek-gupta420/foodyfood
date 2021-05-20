@@ -14,7 +14,7 @@ include 'dbcon.php';
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Foody Food</title>
+  <title>Foody Shala</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="refresh" content="5">
